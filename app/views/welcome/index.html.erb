@@ -1,2 +1,20 @@
 <h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/index.html.erb</p>
+
+<div class="trick"></div>
+
+
+
+
+<a href="<%= new_user_session_path %>">se connecter</a><br>
+
+<a href="<%= new_user_registration_path %>">Créer un compte</a><br><br>
+
+<%= button_to "Se déconnecter", destroy_user_session_path, method: :delete %><br><br>
+
+
+<% if user_signed_in? %>
+<%= link_to "Voir mon profil", user_path(current_user.id) %>
+<% else %>
+
+<% end %>

@@ -12,9 +12,25 @@ class UsersController < ApplicationController
   end
 
 
+
+  def update
+    @user = User.update(user_params)
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user = User.destroy
+    redirect_to '/'
+  end
+
+
+  def edit
+  end
+
+
   def create
      
-    @user = User.create(first_name: params[:first_name], name: params[:name])
+    @user = User.new(user_params)
 
     if @user.save
       redirect_to users 
@@ -26,10 +42,9 @@ class UsersController < ApplicationController
 
   private
 
-  def login
-   
+  def user_params
+    params.require(:user).permit(:avatar, :first_name, :name, :email, :login)
   end
 
-  def edit
-  end
+
 end
