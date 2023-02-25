@@ -31,19 +31,20 @@ class UsersController < ApplicationController
   def create
      
     @user = User.new(user_params)
-
     if @user.save
-      redirect_to users 
+      # Deliver the signup email
+      UserMailer.user_created(@user).deliver_now
+      mailer.confirmation_instrucions(@user).deliver_now
+      redirect_to(@user, :notice => 'User created')
     else
-      render new
+      render :action => 'new'
     end
-
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:avatar, :first_name, :name, :email, :login)
+    params.require(:user).permit(:first_name, :name, :email, :login)
   end
 
 

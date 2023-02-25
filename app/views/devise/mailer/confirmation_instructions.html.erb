@@ -1,5 +1,34 @@
-<p>Welcome <%= @email %>!</p>
+<br>
+<h1>Bienvenue <%= @user.first_name %> !</h1>
 
-<p>You can confirm your account email through the link below:</p>
+<p>Nous avons reçu une demande pour enregistrer cette adresse e-mail avec votre compte le bon coin du dessin.<br>
+Pour confirmer que vous êtes le propriétaire de cette adresse e-mail,<br>
+veuillez cliquer sur le lien ci-dessous :</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<h4 style="color: green"><%= link_to 'Confirmer mon compte', confirmation_url(@resource, confirmation_token: @token) %></h4>
+<br>
+<p>Si vous n'avez pas demandé à enregistrer cette adresse e-mail, veuillez ignorer ce message.</p>
+<p>Merci de votre confiance en le bon coin du dessin</p>
+<br><br>
+<p>Cordialement,<br>
+L'équipe le bon coin du dessin.</p>
+<small style="color: green">Jerry MANKOU - Kevin LETOURNEUR - Sarah MELAIKIA - Antony MILORADOVIC</small>
+<br>
+
+<hr>
+<br>
+<h1>Welcome <%= @user.first_name %> !</h1>
+
+
+<p>We received a request to register this email address with your le bon coin du dessin account.<br>
+To confirm that you are the owner of this email address,<br>
+please click on the link below:</p>
+
+<h4 style="color: green"><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></h4>
+<br>
+<p>If you have not requested to save this email address, please ignore this message.</p>
+<p>Thank you for trusting le bon coin du dessin</p>
+<br><br>
+<p>Regards,<br>
+le bon coin du dessin team.</p>
+<small style="color: green">Jerry MANKOU - Kevin LETOURNEUR - Sarah MELAIKIA - Antony MILORADOVIC</small>

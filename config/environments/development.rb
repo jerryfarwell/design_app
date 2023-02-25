@@ -2,11 +2,34 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
 
+  config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    address: "smtp.sendgrid.net",
+    port: 587,
+    domain: 'localhost',
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: "apikey",
+    password: Rails.application.credentials.dig(:sendgrid, :api_key)
+  }
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+#-------------------mailer---------------------------
+
+config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+config.action_mailer.perform_deliveries = true
+config.action_mailer.raise_delivery_errors = true
+config.action_mailer.delivery_method = :smtp
+
+  #----------------------------------------------------
 
 
-  config.active_storage.variant_precessor = :mini_magick
+
+#-------------------allow us to resize images---------------------------
+config.active_storage.variant_precessor = :mini_magick
+#----------------------------------------------------------------------
+
+
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
@@ -43,7 +66,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 

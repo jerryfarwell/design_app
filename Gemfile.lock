@@ -227,7 +227,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
-  devise (~> 4.9)
+  devise (~> 4.8)
   importmap-rails
   jbuilder
   mini_magick (~> 4.12)

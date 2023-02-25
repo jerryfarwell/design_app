@@ -71,6 +71,6 @@ group :test do
   gem "webdrivers"
 end
 
-gem "devise", "~> 4.9"        # this is for authentication it helps the user authenticate easier
+gem "devise", "~> 4.8"        # this is for authentication it helps the user authenticate easier
 
 gem "mini_magick", "~> 4.12"    # this gem allows us to reduce the size of images // it works with active storage
