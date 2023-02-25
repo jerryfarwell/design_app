@@ -1,0 +1,32 @@
+
+<div class="usershow" style="text-align: center">
+
+<div class="trick"></div>
+
+ <%if @user.avatar.attached?%>
+    <%= link_to  image_tag(@user.avatar, alt: 'avatar', class:'img-fluid rounded-pill', style:'height:18rem ; width:18rem'), @user.avatar %>
+    <%else%>
+      <p>=== Il n'y a pas de photo sur votre profil ===</p>
+      <p>=== ajour votre photo ici 👇🏽 ===</p>
+    <% end %>
+
+<%= form_with(url: user_avatars_path(@user), local: true, multipart: true) do |form| %>
+  <%= form.file_field :avatar %>
+  <%= form.submit "Uploader l'avatar" %>
+<% end %>
+
+
+<h5>Votre prénom:</h5>
+<%= @user.first_name %><br><br>
+<h5>Votre nom:</h5>
+<%= @user.name %><br><br>
+<h5>Votre email:</h5>
+<%= @user.email %>
+
+<div class="trick"></div>
+
+
+
+
+
+</div>
